@@ -68,9 +68,9 @@ generalSocket(io, database);
 ordersSocket(io, database);
 frontendStatusSocket(io, database);
 
-// Pokretanje servera
-const port = process.env.PORT || 3000;
-const localhost = "localhost";
-server.listen(port, () => {
-  console.log(`🚀 Server is running on http://${localhost}:${port}`);
+const PORT = process.env.PORT || 3000;
+
+// OBAVEZNO "0.0.0.0" - bez toga Railway ne propušta vanjski promet
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server is back online on port ${PORT}`);
 });
